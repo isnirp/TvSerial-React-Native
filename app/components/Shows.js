@@ -1,20 +1,12 @@
 import React, { Component } from "react";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  ToolbarAndroid,
-  FlatList,
-  Dimensions
-} from "react-native";
+import { Platform, View } from "react-native";
 import { connect } from "react-redux";
 //import { GET_SHOWS } from "../actions/types";
 import { getShows } from "../actions/act_shows";
 import PropTypes from "prop-types";
-
-const numColumns = 3;
+import styles from "../res/styles/component_shows";
+import Toolbar from "./custom/ToolBar";
+import GridView from "./custom/GridView";
 
 class Shows extends Component {
   componentDidMount() {
@@ -23,32 +15,12 @@ class Shows extends Component {
 
   render() {
     const { shows } = this.props;
-
     return (
-      <View>
-        <ToolbarAndroid
-          style={styles.toolbar}
-          title="TvAmaze"
-          titleColor="#ffffff"
-        />
-
-        <FlatList
-          style={{ padding: 16 }}
-          data={shows}
-          keyExtractor={(item, index) => item.id}
-          renderItem={({ item }) => (
-            <Image
-              style={{
-                width: 100,
-                height: 100,
-                marginBottom: 10,
-                marginRight: 10
-              }}
-              source={{ uri: item.image.medium }}
-            />
-          )}
-          numColumns={numColumns}
-        />
+      <View style={styles.container}>
+        <Toolbar title="TvAmaze" />
+        <View style={styles.content}>
+          <GridView gridData={shows} />
+        </View>
       </View>
     );
   }
@@ -72,31 +44,3 @@ export default connect(
   { getShows } /*actions u want to dispatch*/
 )(Shows);
 //export default connect(mapStateToProps, mapDispatchToProps)(Shows);
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    flex: 1,
-    margin: 10,
-    paddingTop: 20
-  },
-  GridViewBlockStyle: {
-    justifyContent: "center",
-    flex: 1,
-    alignItems: "center",
-    height: 100,
-    margin: 5,
-    backgroundColor: "#00BCD4"
-  },
-  item: {
-    padding: 10,
-    justifyContent: "center",
-    height: 100,
-    width: 100
-    //height: Dimensions.get("window").width / numColumns
-  },
-  toolbar: {
-    backgroundColor: "#ff3300",
-    height: 56
-  }
-});
