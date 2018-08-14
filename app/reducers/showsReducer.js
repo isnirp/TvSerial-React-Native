@@ -1,4 +1,4 @@
-import { GET_SHOWS } from "../actions/types";
+import { GET_SHOWS, DELETE_SHOW } from "../actions/types";
 
 //a reducer has its default state
 
@@ -12,6 +12,11 @@ export default function(state = initState, action) {
       return {
         ...state,
         shows: action.payload
+      };
+    case DELETE_SHOW:
+      return {
+        ...state,
+        shows: state.shows.filter(show => show.id !== action.payload)
       };
     default:
       return state;
