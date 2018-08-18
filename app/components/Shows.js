@@ -1,25 +1,43 @@
 import React, { Component } from "react";
-import { Platform, View } from "react-native";
+import { Platform, View, FlatList } from "react-native";
 import { connect } from "react-redux";
 //import { GET_SHOWS } from "../actions/types";
 import { getShows } from "../actions/act_shows";
 import PropTypes from "prop-types";
 import styles from "../res/styles/component_shows";
 import Toolbar from "./custom/ToolBar";
-import GridView from "./custom/GridView";
+import Items from "../res/styles/items_shows";
 
 class Shows extends Component {
+  static navigationOptions = {
+    header: null
+  };
   componentDidMount() {
     this.props.getShows();
   }
 
   render() {
     const { shows } = this.props;
+    let columns = 3;
     return (
       <View style={styles.container}>
         <Toolbar title="TvAmaze" />
         <View style={styles.content}>
-          <GridView gridData={shows} />
+          <FlatList
+            data={shows}
+            keyExtractor={(item, index) => item.id}
+            renderItem={({ item }) => (
+              <Items
+                onPress={() =>
+                  this.props.navigation.navigate("ShowsDetails", {
+                    item
+                  })
+                }
+                data={item}
+              />
+            )}
+            numColumns={columns}
+          />
         </View>
       </View>
     );
@@ -39,8 +57,9 @@ const mapStateToProps = state => ({
 //   getShows: () => dispatch({ type: GET_SHOWS })
 // });
 
+//export default connect(mapStateToProps, mapDispatchToProps)(Shows);
+
 export default connect(
   mapStateToProps /*anything u want mapped from the redux STATES to PROPS in the component*/,
   { getShows } /*actions u want to dispatch*/
 )(Shows);
-//export default connect(mapStateToProps, mapDispatchToProps)(Shows);

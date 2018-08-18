@@ -13,7 +13,7 @@ export default props => {
     <FlatList
       data={shows}
       keyExtractor={(item, index) => item.id}
-      renderItem={({ item }) => <Items data={item} />}
+      renderItem={({ item }) => <Items onPress={props.onPress} data={item} />}
       numColumns={columnNum}
     />
   );

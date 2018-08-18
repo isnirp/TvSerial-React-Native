@@ -7,15 +7,15 @@
  */
 
 import React, { Component } from "react";
-import Shows from "./app/components/Shows";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import { Navigator } from "./app/nav/routes";
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Shows />
+        <Navigator />
       </Provider>
     );
   }

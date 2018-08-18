@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers/index";
+import { navMiddleware } from "./nav/routes";
 
 const initState = {};
 
-//const middleware = [thunk];
+//const middleware = [thunk, navMiddleware];
 
 export default createStore(rootReducer, applyMiddleware(thunk));
 

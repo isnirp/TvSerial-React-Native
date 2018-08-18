@@ -1,16 +1,18 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 
 export default props => {
   const { data } = props;
   return (
-    <View style={styles.item}>
-      <Image
-        style={styles.imagePlaceHolder}
-        source={{ uri: data.image.medium }}
-      />
-      <Text style={styles.label}>{data.name}</Text>
-    </View>
+    <TouchableOpacity onPress={props.onPress}>
+      <View style={styles.item}>
+        <Image
+          style={styles.imagePlaceHolder}
+          source={{ uri: data.image.medium }}
+        />
+        <Text style={styles.label}>{data.name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
