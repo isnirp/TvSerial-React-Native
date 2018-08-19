@@ -1,35 +1,35 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, Dimensions } from "react-native";
 
+const newHeight = (Dimensions.get("window").height * 2) / 4;
 export default (styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#ff3300"
-  },
-  imagePlaceHolder: {
-    flex: 2,
-    //flexDirection: "row",
-    //width: 200,
-    height: 150,
-    marginTop: 16,
-    marginBottom: 10,
+    //flex: 1,
     backgroundColor: "#f0f0f0"
   },
+  imagePlaceHolder: {
+    //flex: 2,
+    height: newHeight,
+    marginTop: 1,
+    marginBottom: 10
+  },
   images: {
-    flex: 1
+    flex: 1,
+    resizeMode: "cover"
+    //alignSelf: "stretch"
   },
   showsMeta: {
     //main meta container
-    flex: 3,
-    backgroundColor: "#ccc",
+    //flex: 3,
     marginRight: 16,
     marginLeft: 16
+    //backgroundColor: "#ccc",
   },
   showsMetaSubject: {
     //sub meta container
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#ffffff",
     paddingTop: 16
+    //backgroundColor: "#ffffff",
     //alignItems: "center"
   },
   showsMetaTitle: {

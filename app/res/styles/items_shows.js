@@ -1,5 +1,12 @@
 import React from "react";
-import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 
 export default props => {
   const { data } = props;
@@ -18,27 +25,30 @@ export default props => {
 
 //trim label
 const textValue = value => {};
+const columns = 3;
+const newWidth = Dimensions.get("window").width - 52;
+const newHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   item: {
     flex: 1,
-    flexDirection: "column",
     justifyContent: "center",
-    height: 150,
-    width: 100,
-    padding: 1,
+    height: newHeight / (columns + 2),
+    width: newWidth / columns,
     marginRight: 10,
     marginBottom: 10,
     borderRadius: 6,
-    backgroundColor: "#cecece"
-    //height: Dimensions.get("window").width / numColumns
+    backgroundColor: "transparent"
   },
   imagePlaceHolder: {
-    flex: 3
+    flex: 3,
+    alignSelf: "stretch"
   },
   label: {
     flex: 1,
     backgroundColor: "#ff3300",
-    color: "#ffffff"
+    color: "#ffffff",
+    alignSelf: "stretch",
+    padding: 5
   }
 });
