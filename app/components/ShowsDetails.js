@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import styles from "../res/styles/component_details";
+import TextView from "./custom/TextView";
 
 class ShowsDetails extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -13,8 +15,28 @@ class ShowsDetails extends Component {
   render() {
     const { item } = this.props.navigation.state.params;
     return (
-      <View>
-        <Text>Hello {item.name}</Text>
+      <View style={styles.container}>
+        <View style={styles.imagePlaceHolder}>
+          <Image source={{ uri: item.image.medium }} style={styles.images} />
+        </View>
+        <View style={styles.showsMeta}>
+          <View style={styles.showsMetaSubject}>
+            <View style={styles.showsMetaTitle}>
+              <TextView text={item.name} headline />
+              {item.status == "Running" ? (
+                <TextView text={item.status.toLowerCase()} color="green" />
+              ) : (
+                <TextView text={item.status.toLowerCase()} color="red" />
+              )}
+            </View>
+            <View style={styles.showsMetaFav}>
+              <Text>Favorite</Text>
+            </View>
+          </View>
+          <View style={styles.showsMetaSummary}>
+            <TextView text={item.summary} size="16" />
+          </View>
+        </View>
       </View>
     );
   }
