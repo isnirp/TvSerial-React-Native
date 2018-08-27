@@ -41,6 +41,9 @@ export default (styles = StyleSheet.create({
   },
   showsMetaSummary: {
     //sub meta container
-    flex: 4
+    flex: 2
+  },
+  showsMetaEpisode: {
+    flex: 2
   }
 }));

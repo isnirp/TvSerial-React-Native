@@ -9,10 +9,12 @@ const initState = {
 export default function(state = initState, action) {
   switch (action.type) {
     case GET_SHOWS:
-      return {
-        ...state,
-        shows: action.payload
-      };
+      // return {
+      //    ...state,
+      //    shows: action.payload
+      // };
+      var state = Object.assign({}, state, { shows: action.payload });
+      return state;
     case DELETE_SHOW:
       return {
         ...state,

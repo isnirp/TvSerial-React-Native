@@ -9,6 +9,7 @@ import {
 import Shows from "../components/Shows";
 import ShowsDetails from "../components/ShowsDetails";
 
+//Each screen that the navigator renders gets a navigation prop 
 export const Navigator = createStackNavigator(
   {
     Shows: {

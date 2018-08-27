@@ -1,8 +1,18 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  ScrollView
+} from "react-native";
 import styles from "../res/styles/component_details";
 import TextView from "./custom/TextView";
 import ImageView from "./custom/ImageView";
+import { connect } from "react-redux";
+import { GET_EPISODES } from "../actions/types";
+import { getEpisodes } from "../actions/act_episodes";
 
 class ShowsDetails extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -13,8 +23,14 @@ class ShowsDetails extends Component {
     },
     headerTintColor: "#fff"
   });
+
+  componentDidMount() {
+    this.props.getEpisodes();
+  }
+
   render() {
     const { item } = this.props.navigation.state.params;
+    const { episodes } = this.props;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -41,6 +57,12 @@ class ShowsDetails extends Component {
             <View style={styles.showsMetaSummary}>
               <TextView text={item.summary} size="16" />
             </View>
+            <View style={styles.showsMetaEpisode}>
+              <FlatList
+                data={episodes}
+                renderItem={({ item }) => <Text>{item.name}</Text>}
+              />
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -48,4 +70,15 @@ class ShowsDetails extends Component {
   }
 }
 
-export default ShowsDetails;
+const mapStateToProps = state => ({
+  episodes: state.tvEpisodes.episodes
+});
+
+const mapDispatchToProps = dispatch => ({
+  getEpisodes: () => dispatch({ type: GET_EPISODES })
+});
+
+export default connect(
+  mapStateToProps,
+  { getEpisodes }
+)(ShowsDetails);

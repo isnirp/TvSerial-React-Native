@@ -29,9 +29,12 @@ class Shows extends Component {
             renderItem={({ item }) => (
               <Items
                 onPress={() =>
-                  this.props.navigation.navigate("ShowsDetails", {
-                    item
-                  })
+                  this.props.navigation.navigate(
+                    "ShowsDetails",
+                    /*params */ {
+                      item
+                    }
+                  )
                 }
                 data={item}
               />
