@@ -5,8 +5,11 @@ import { createNavigationReducer } from "react-navigation-redux-helpers";
 
 //export default createNavigationReducer(Navigator);
 
-const initialAction = { type: NavigationActions.Init };
-const initialState = Navigator.router.getStateForAction(initialAction);
+//const initialAction = { type: NavigationActions.Init };
+//const initialState = Navigator.router.getStateForAction(initialAction);
+const initialState = Navigator.router.getStateForAction(
+  NavigationActions.init()
+);
 
 export default (state = initialState, action) => {
   let newState = Navigator.router.getStateForAction(action, state);

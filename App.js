@@ -9,7 +9,7 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./app/store";
-import { Navigator } from "./app/nav/routes";
+import Nav, { Navigator } from "./app/nav/routes";
 
 export default class App extends Component {
   render() {

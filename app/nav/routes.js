@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createStackNavigator } from "react-navigation";
-//import { StackNavigator } from "react-navigation";
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware
-} from "react-navigation-redux-helpers";
+import { createStackNavigator, addNavigationHelpers } from "react-navigation";
 import Shows from "../components/Shows";
 import ShowsDetails from "../components/ShowsDetails";
 
-//Each screen that the navigator renders gets a navigation prop 
+//Each screen that the navigator renders gets a navigation prop
 export const Navigator = createStackNavigator(
   {
     Shows: {
@@ -27,11 +22,16 @@ export const Navigator = createStackNavigator(
 class Nav extends Component {
   render() {
     return (
+      // <Navigator
+      //   navigation={addNavigationHelpers({
+      //     dispatch: this.props.dispatch,
+      //     state: this.props.navigation
+      //   })}
+      // />
       <Navigator
         navigation={{
           dispatch: this.props.dispatch,
-          state: this.props.navigation,
-          addListener
+          state: this.props.navigation
         }}
       />
     );

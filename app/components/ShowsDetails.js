@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  FlatList,
-  ScrollView
-} from "react-native";
+import { View, Text, Image, FlatList, ScrollView } from "react-native";
 import styles from "../res/styles/component_details";
 import TextView from "./custom/TextView";
-import ImageView from "./custom/ImageView";
 import { connect } from "react-redux";
-import { GET_EPISODES } from "../actions/types";
-import { getEpisodes } from "../actions/act_episodes";
+import * as Actions from "../actions/act_episodes";
+import { bindActionCreators } from "redux";
 
 class ShowsDetails extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -25,7 +17,7 @@ class ShowsDetails extends Component {
   });
 
   componentDidMount() {
-    this.props.getEpisodes();
+    this.props.getEpisodes(this.props.navigation.state.params.item.id);
   }
 
   render() {
@@ -74,11 +66,9 @@ const mapStateToProps = state => ({
   episodes: state.tvEpisodes.episodes
 });
 
-const mapDispatchToProps = dispatch => ({
-  getEpisodes: () => dispatch({ type: GET_EPISODES })
-});
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
 
 export default connect(
   mapStateToProps,
-  { getEpisodes }
+  mapDispatchToProps
 )(ShowsDetails);
