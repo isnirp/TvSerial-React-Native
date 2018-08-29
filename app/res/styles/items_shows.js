@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions
 } from "react-native";
+import * as colors from "../colors";
 
 export default props => {
   const { data } = props;
@@ -46,8 +47,8 @@ const styles = StyleSheet.create({
   },
   label: {
     flex: 1,
-    backgroundColor: "#ff3300",
-    color: "#ffffff",
+    backgroundColor: colors.colorPrimary,
+    color: colors.textColorPrimary,
     alignSelf: "stretch",
     padding: 5
   }

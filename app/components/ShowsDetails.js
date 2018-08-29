@@ -5,6 +5,7 @@ import EpisodeItems from "../res/styles/items_episodes";
 import TextView from "./custom/TextView";
 import { connect } from "react-redux";
 import * as Actions from "../actions/act_episodes";
+import * as colors from "../res/colors";
 import { bindActionCreators } from "redux";
 
 class ShowsDetails extends Component {
@@ -12,9 +13,9 @@ class ShowsDetails extends Component {
     title: navigation.state.params.item.name,
     headerStyle: {
       height: 56,
-      backgroundColor: "#ff3300"
+      backgroundColor: colors.colorPrimary
     },
-    headerTintColor: "#fff"
+    headerTintColor: colors.colorToolBar
   });
 
   componentDidMount() {

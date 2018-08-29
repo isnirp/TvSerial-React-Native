@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, View, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import { connect } from "react-redux";
 //import { GET_SHOWS } from "../actions/types";
 import { getShows } from "../actions/act_shows";

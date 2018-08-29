@@ -1,5 +1,6 @@
 import React from "react";
-import { Platform, Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
+import * as colors from "../../res/colors";
 
 //<TextView text="title" textAppearance="bold" size="16" color="red" headline/>
 export default props => {
@@ -8,11 +9,11 @@ export default props => {
   if (props.headline) {
     fntWeight = "bold";
     fntSize = 16;
-    fntColor = "#000000";
+    fntColor = colors.textColorPrimary;
   } else {
     fntWeight = "normal";
     fntSize = 13;
-    fntColor = "#000000";
+    fntColor = colors.textColorPrimary;
   }
 
   //appearance bold, normal, italic
@@ -46,6 +47,6 @@ export default props => {
 const styles = StyleSheet.create({
   base: {
     padding: 1,
-    color: "#000000"
+    color: colors.textColorPrimary
   }
 });
