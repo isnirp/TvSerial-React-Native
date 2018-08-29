@@ -1,6 +1,13 @@
-const colorPrimary = "#ff3300";
-const colorSecondary = "#ff3300";
-const colorAccent = "#ff3300";
+const colorPrimary = "#ffd454";
+const colorSecondary = "#ff6d00";
+const colorAccent = "#ffab40";
 const colorToolBar = "#ffffff";
+const windowBackground = "#f0f0f0";
 
-export { colorPrimary, colorSecondary, colorAccent, colorToolBar };
+export {
+  colorPrimary,
+  colorSecondary,
+  colorAccent,
+  colorToolBar,
+  windowBackground
+};
