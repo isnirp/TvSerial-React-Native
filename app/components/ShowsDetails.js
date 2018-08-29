@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Image, FlatList, ScrollView } from "react-native";
 import styles from "../res/styles/component_details";
+import EpisodeItems from "../res/styles/items_episodes";
 import TextView from "./custom/TextView";
 import { connect } from "react-redux";
 import * as Actions from "../actions/act_episodes";
@@ -23,6 +24,7 @@ class ShowsDetails extends Component {
   render() {
     const { item } = this.props.navigation.state.params;
     const { episodes } = this.props;
+    const img = item.image.medium;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -49,12 +51,12 @@ class ShowsDetails extends Component {
             <View style={styles.showsMetaSummary}>
               <TextView text={item.summary} size="16" />
             </View>
-            <View style={styles.showsMetaEpisode}>
-              <FlatList
-                data={episodes}
-                renderItem={({ item }) => <Text>{item.name}</Text>}
-              />
-            </View>
+          </View>
+          <View style={styles.showsMetaEpisode}>
+            <FlatList
+              data={episodes}
+              renderItem={({ item }) => <EpisodeItems data={item} img={img} />}
+            />
           </View>
         </View>
       </ScrollView>

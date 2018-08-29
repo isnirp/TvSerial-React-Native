@@ -44,6 +44,6 @@ export default (styles = StyleSheet.create({
     flex: 2
   },
   showsMetaEpisode: {
-    flex: 2
+    flex: 1
   }
 }));
