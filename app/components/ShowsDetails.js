@@ -25,7 +25,7 @@ class ShowsDetails extends Component {
   render() {
     const { item } = this.props.navigation.state.params;
     const { episodes } = this.props;
-    const img = item.image.medium;
+    const imgDefault = item.image.medium;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -50,13 +50,16 @@ class ShowsDetails extends Component {
               </View>
             </View>
             <View style={styles.showsMetaSummary}>
-              <TextView text={item.summary} size="16" />
+              <TextView text={item.summary} size={16} />
             </View>
           </View>
-          <View style={styles.showsMetaEpisode}>
+          <View style={styles.showsEpisodes}>
             <FlatList
               data={episodes}
-              renderItem={({ item }) => <EpisodeItems data={item} img={img} />}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <EpisodeItems data={item} img={imgDefault} />
+              )}
             />
           </View>
         </View>

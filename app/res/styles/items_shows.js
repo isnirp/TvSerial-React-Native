@@ -8,6 +8,7 @@ import {
   Dimensions
 } from "react-native";
 import * as colors from "../colors";
+import TextView from "../../components/custom/TextView";
 
 export default props => {
   const { data } = props;
@@ -18,14 +19,14 @@ export default props => {
           style={styles.imagePlaceHolder}
           source={{ uri: data.image.medium }}
         />
-        <Text style={styles.label}>{data.name}</Text>
+        <View style={styles.label}>
+          <TextView text={data.name} lines={1} />
+        </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-//trim label
-const textValue = value => {};
 const columns = 3;
 const newWidth = Dimensions.get("window").width - 52;
 const newHeight = Dimensions.get("window").height;
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
   label: {
     flex: 1,
     backgroundColor: colors.colorPrimary,
-    color: colors.textColorPrimary,
     alignSelf: "stretch",
     padding: 5
   }

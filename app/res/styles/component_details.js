@@ -40,7 +40,11 @@ export default (styles = StyleSheet.create({
     //sub meta container
     flex: 2
   },
-  showsMetaEpisode: {
-    flex: 1
+  showsEpisodes: {
+    flex: 1,
+    marginRight: 16,
+    marginLeft: 16,
+    marginTop: 16,
+    marginBottom: 16
   }
 }));
