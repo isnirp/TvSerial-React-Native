@@ -59,8 +59,6 @@ const mapStateToProps = state => ({
 //   getShows: () => dispatch({ type: GET_SHOWS })
 // });
 
-//export default connect(mapStateToProps, mapDispatchToProps)(Shows);
-
 export default connect(
   mapStateToProps /*anything u want mapped from the redux STATES to PROPS in the component*/,
   { getShows } /*actions u want to dispatch*/
