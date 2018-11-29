@@ -9,19 +9,6 @@ const initState = {};
 
 export default createStore(rootReducer, applyMiddleware(thunk));
 
-//export default createStore(rootReducer, initState, applyMiddleware(thunk));
-
-/*export default createStore(
-  rootReducer,
-  initState,
-  compose(
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()//redux dev tools
-  )
-);*/
-
-//const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
-
 //Redux
 // Redux is a state container for JavaScript apps, often called a Redux store.
 //It stores the whole state of the app in an immutable object tree.
