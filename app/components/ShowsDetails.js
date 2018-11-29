@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Image, FlatList, ScrollView } from "react-native";
 import styles from "../res/styles/component_details";
-import EpisodeItems from "../res/styles/items_episodes";
+import EpisodeItems from "./EpisodeItems";
 import TextView from "./custom/TextView";
 import { connect } from "react-redux";
 import * as Actions from "../actions/act_episodes";

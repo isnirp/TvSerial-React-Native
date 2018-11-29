@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  Image,
-  TouchableOpacity,
-  Dimensions
-} from "react-native";
-import { items_style as styles } from "./component_shows";
-import TextView from "../../components/custom/TextView";
+import { View, Image, TouchableOpacity } from "react-native";
+import { items_style as styles } from "../res/styles/component_shows";
+import TextView from "./custom/TextView";
 
 export default props => {
   const { data } = props;

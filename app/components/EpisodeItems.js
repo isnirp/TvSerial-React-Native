@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Image } from "react-native";
-import TextView from "../../components/custom/TextView";
+import TextView from "./custom/TextView";
 
 export default props => {
   const { data, img } = props;

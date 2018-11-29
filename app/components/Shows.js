@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { View, FlatList } from "react-native";
 import { connect } from "react-redux";
-//import { GET_SHOWS } from "../actions/types";
 import { getShows } from "../actions/act_shows";
 import PropTypes from "prop-types";
-//import styles from "../res/styles/component_shows";
 import { styles } from "../res/styles/component_shows";
 import Toolbar from "./custom/ToolBar";
-import Items from "../res/styles/items_shows";
+import Items from "./ShowsItems";
 
 class Shows extends Component {
   static navigationOptions = {
