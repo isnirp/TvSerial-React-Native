@@ -25,7 +25,10 @@ export default class App extends Component {
 /*
 tips for react development
  */
-/*use functional component_details
+/*
+npm ls vulnerability-name
+
+use functional component_details
 -if u dont need state (stateless)
 -No THIS binding
 -less code
